@@ -1,5 +1,5 @@
 var viewerList = [],
-	keyword = "rsbgiveaway";
+	keyword = "keyword";
 
 var options = {
     options: {
@@ -9,10 +9,10 @@ var options = {
         reconnect: true,
     },
     identity: {
-        username: "warframersb",
-        password: "oauth:o2x8c6bai147u1h0024kaf1dlg73zd"
+        username: "yourTwitchUsername",
+        password: "oath2"
     },
-    channels: ["#warframersb"]
+    channels: ["#twitchChannel"]
 };
 
 var client = new tmi.client(options);
