@@ -8,8 +8,8 @@ Node.js is needed.
 
 ## Setting up Node.js
 - [Download](https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi) and install Node.js
-- Open command prompt window the project directory with `Shift + Right Click`
-- Run the following command `npm install connect serve-static express body-parser fs`
+- Open command prompt window inside the project directory with `Shift + Right Click`
+- Run the following command `npm install`
 
 ## Setting up the overlay
 - Open `main.js` and look for the first block
