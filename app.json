@@ -1,0 +1,73 @@
+{
+  "name": "Twitch Giveaway Overlay",
+  "description": "Tiny configurable giveaway overlay for Twitch!",
+  "repository": "https://github.com/wfcd/wfrsb-giveaway-overlay",
+  "env": {
+    "CHANNEL": {
+      "description": "Channel that your app will write to",
+      "required": true
+    },
+    "OAUTH_USER": {
+      "description": "Twitch Username",
+      "required": true
+    },
+    "OAUTH_SECRET": {
+      "description": "Twitch OAuth Secret",
+      "required": true
+    },
+    "VIEWERS": {
+      "required": false,
+      "description": "Debug comma-separated value list (no padding spaces) for prepopulating participants for testing styles, etc."
+    },
+    "KEYWORD": {
+      "description": "Keyword to use to allow people to enter the giveaway. Providing no value removes the need for a keyword.",
+      "required": false,
+      "default": "plat"
+    },
+    "RESTRICT_FROM_MODS": {
+      "description": "Whether or not to restrict giveaways from being entered by mods",
+      "required": true,
+      "default": "false"
+    },
+    "CALLERS": {
+      "required": true,
+      "description": "Allowed callers for calling the trigger command in chat. Empty for none. Comma-separated value list (no padding spaces)."
+    },
+    "TRIGGER": {
+      "required": true,
+      "description": "Command to trigger Giveaway rolling."
+    },
+    "ANNOUNCE_ON_JOIN": {
+      "required": true,
+      "description": "Whether or not to announce the bot's presence on joining the channel.",
+      "default": "false"
+    },
+    "ANNOUNCE_ROLLS": {
+      "required": true,
+      "description": "Whether or not to announce that the rolling has begun.",
+      "default": "false"
+    },
+    "ANNOUNCE_WINNER": {
+      "required": true,
+      "description": "Whether or not to announce winner in chat.",
+      "default": "false"
+    },
+    "ICON_URL": {
+      "required": true,
+      "description": "Giveaway overlay icon",
+      "default": "icon.png"
+    },
+    "SECRET": {
+      "description": "Secret to call your app with so you can safely retrive settings securely. Make sure it's secure but use just letters & numbers, it'll be hiding your credentials from public view.",
+      "required": true,
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/nodejs"
+}

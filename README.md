@@ -7,28 +7,29 @@ Simple Webscript overlay we used on our first giveaway event and might use it ag
 Node.js is needed.
 
 ## Setting up Node.js
-- [Download](https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi) and install Node.js
+- [Download](https://nodejs.org/dist/v12.18.2/node-v12.18.2-x64.msi) and install Node.js
 - Open command prompt window inside the project directory with `Shift + Right Click`
-- Run the following command `npm install`
+- Run the following command `npm i`
 
 ## Setting up the overlay
-- Open `main.js` and look for the first block
+- Create a .env file in the root, it should have a structure like...
 ```
-var options = {
-    options: {
-        debug: true
-    },
-    connection: {
-        reconnect: true,
-    },
-    identity: {
-        username: "yourTwitchUsername",
-        password: "oath2"
-    },
-    channels: ["#twitchChannel"]
-};
+CHANNEL=YourTwitchChannel
+OAUTH_USER=yourTwitchUsername
+OAUTH_SECRET=###OUAHTSECRET###
+VIEWERS=
+KEYWORD=plat
+RESTRICT_FROM_MODS=true
+CALLERS=yourTwitchUsername
+TRIGGER=!gstart
+ANNOUNCE_ON_JOIN=false
+ANNOUNCE_ROLLS=false
+ANNOUNCE_WINNER=false
+ICON_URL=https://path.to.your.logo.ml
+SECRET=reallyreallyreallySECUREPIECEofLoTsOFTEXt!!one!1!!
 ```
-- Change `username:` to your Twitch username, `password:` to your oath2 key which you can get [here](https://twitchapps.com/tmi/) and `channels:` to your own Twitch channel.
+- Change `OAUTH_USER` to your Twitch username, `OAUTH_SECRET` to your oath2 key which you can get [here](https://twitchapps.com/tmi/) and `CHANNEL` to your own Twitch channel.
+- Change `SECRET` to something you choose.
 
 ## Adding rewards
 - Edit the JSON file `data.json` and add your rewards in `prizes:[]` just as a regular JavaScript array
@@ -36,9 +37,19 @@ var options = {
 ## Using it
 - Open command window in the project directory
 - Run the overlay server with `node server.js`
-- Run OBS and add a new Browser Source, linking `http://localhost:8080/`
-- When you want to roll it: Right click the source, select Interact then press your spacebar
+- Run OBS and add a new Browser Source, linking `http://localhost:3000/static/index.html?secret=SECRET` (SECRET will be whatever you put in further up)
+- When you want to roll it: 
+  - Right click the source, select Interact then press your spacebar
+  - Or use the configured `TRIGGER` phrase. This is configurable.
 
 
 ## Contact
-You can find me on Discord `Monskiller#8879` 
+You can find me on Discord `Monskiller#8879`.
+
+Tobiah#0001 did a bunch of changes to make it more modular without touching code.
+Feel free to reach out to me too.
+
+
+## Developing
+- Do all of the main setup steps
+- Run `npm run dev` in your terminal to start a dev session with automated restarts.
